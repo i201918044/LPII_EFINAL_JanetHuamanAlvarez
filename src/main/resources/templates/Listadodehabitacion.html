@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Habitaciones</title>
+</head>
+<body>
+
+<h1>Listado de Habitaciones</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Precio</th>
+            <!-- Agregar más columnas según sea necesario -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="habitacion : ${habitaciones}">
+            <td th:text="${habi.id}"></td>
+            <td th:text="${habi.numero}"></td>
+            <td th:text="${habi.tipo}"></td>
+            <td th:text="${habi.precio}"></td>
+            <!-- Agregar más celdas según sea necesario -->
+            
+            <form th:action="@{/agregar}" method="post">
+							<input type="hidden" name="productoId" th:value="${pro.id}" />
+							<button type="submit" class="btn btn-primary">agregar carrito</button>
+						</form>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
